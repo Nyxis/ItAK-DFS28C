@@ -5,6 +5,7 @@ class CardDeck {
     public $resultColor;
     public $nb_colors;
     public $nb_values;
+    public $best_result;
 
     public function __construct($nb_colors = 4, $nb_values = 13) {
         $this->nb_colors = $nb_colors;
