@@ -4,7 +4,7 @@ include_once('Result.php');
 include_once('./Interface/Tirage.php');
 
 //Une classe representante le pièce
-class Piece //implements Tirage 
+class Piece implements Tirage 
 {
     private int $_lNbrLance;
 

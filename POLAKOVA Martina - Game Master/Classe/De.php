@@ -4,7 +4,7 @@ include_once('Result.php');
 include_once('./Interface/Tirage.php');
 
 //Une classe qui represente un dé
-class De //implements Tirage 
+class De implements Tirage 
 {
     private int $_lNbrFace;
 

@@ -4,7 +4,7 @@ include_once('Result.php');
 include_once('./Interface/Tirage.php');
 
 //Une classe qui represente un deck de cartes
-class DeckDeCartes //implements Tirage 
+class DeckDeCartes implements Tirage 
 {
     //Attributs privees
     private int $_lNbrCouleurs;
@@ -20,9 +20,9 @@ class DeckDeCartes //implements Tirage
     public function getValeurTirage() : Result
     {
         //Tirage de couleur
-        $lCouleur = tirageCards($this->_lNbrCouleurs);
+        $lCouleur = $this->tirageCards($this->_lNbrCouleurs);
         //Tirage de valeur
-        $lValeur = tirageCards($this->_lNbrValeurs);
+        $lValeur = $this->tirageCards($this->_lNbrValeurs);
         //Le resultat de ce tirage
         $lResultat = rand(1,($lCouleur*$lValeur));
         //Determine le max possible pour ce tirage
