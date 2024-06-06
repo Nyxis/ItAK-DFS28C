@@ -1,8 +1,7 @@
 <?php
 class CardDeck {
 
-    public $resultCard;
-    public $resultColor;
+    public $score;
     public $nb_colors;
     public $nb_values;
     public $best_result;
@@ -10,8 +9,7 @@ class CardDeck {
     public function __construct($nb_colors = 4, $nb_values = 13) {
         $this->nb_colors = $nb_colors;
         $this->nb_values = $nb_values;
-        $this->resultCard = $this->PickCard();
-        $this->resultColor = $this->PickColor();
+        $this->score = $this->PickCard();
     }
 
     public function PickCard() {
@@ -39,11 +37,7 @@ class CardDeck {
         }
         shuffle($cards);
         $resultCard = $cards[0];
-        return $resultCard;
-    }
 
-    public function PickColor() {
-    
         $colors = array();
         for ($j = 0; $j < $this->nb_colors; $j++) {
             switch ($j) {
@@ -64,7 +58,23 @@ class CardDeck {
         }
         shuffle($colors);
         $resultColor = $colors[0];
-        return $resultColor;
+
+        if ($cards[0] == 2) {
+            $score = "Resultat paquet " . $this->nb_colors . " couleurs " . $this->nb_values . " valeurs : " . $resultCard . " de " . $resultColor . " --> echec critique";
+            return $score;
+        }
+        elseif ($cards[0] == "as") {
+            $score = "Resultat paquet " . $this->nb_colors . " couleurs " . $this->nb_values . " valeurs : " . $resultCard . " de " . $resultColor . " --> reussite critique";
+            return $score;
+        }
+        elseif ($cards[0] == "roi" || $cards[0] == "dame" || $cards[0] == "valet" || $cards[0] >= (($this->nb_values - 4) / 2) + 3) {
+            $score = "Resultat paquet " . $this->nb_colors . " couleurs " . $this->nb_values . " valeurs : " . $resultCard . " de " . $resultColor . " --> reussite";
+            return $score;
+        }
+        else {
+            $score = "Resultat paquet " . $this->nb_colors . " couleurs " . $this->nb_values . " valeurs : " . $resultCard . " de " . $resultColor . " --> echec";
+            return $score;
+        }
     }
 
     public function getResult() {
@@ -74,7 +84,7 @@ class CardDeck {
 
     public function __toString() {
 
-        return "Result: " . $this->resultCard . " de " . $this->resultColor . " ";
+        return $this->score . "\n";
     }
 }
 ?>

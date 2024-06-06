@@ -16,21 +16,21 @@ class Dice {
     public function ThrowDice() {
 
         $result = rand($this->lower_face, $this->nb_face);
-        
+
         if ($result == $this->lower_face) {
-            $score = "Resultat: " . $result . " -- > echec critique";
+            $score = "Resultat dé " . $this->nb_face . " : " . $result . " -- > echec critique";
             return $score;
         }
         elseif ($result == $this->nb_face) {
-            $score = "Resultat: " . $result . " -- > reussite critique";
+            $score = "Resultat dé " . $this->nb_face . " : " . $result . " -- > reussite critique";
             return $score;
         }
         elseif ($result > $this->nb_face/2 && $result != $this->nb_face) {
-            $score = "Resultat: " . $result . " -- > reussite";
+            $score = "Resultat dé " . $this->nb_face . " : " . $result . " -- > reussite";
             return $score;
         }
         else {
-            $score = "Resultat: " . $result . " -- > echec";
+            $score = "Resultat dé " . $this->nb_face . " : " . $result . " -- > echec";
             return $score;
         }
     }

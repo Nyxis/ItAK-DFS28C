@@ -32,19 +32,19 @@ class Coin {
             }
         }
         if ($counter == 0) {
-            $score = "Result: " . implode(", ", $results) . " --> echec critique";
+            $score = "Resultat piece " . $this->drawCount . " lancé : " . implode(", ", $results) . " --> echec critique";
             return $score;
         }
         elseif ($counter == $this->drawCount) {
-            $score = "Result: " . implode(", ", $results) . " --> reussite critique";
+            $score = "Resultat piece " . $this->drawCount . " lancé : " . implode(", ", $results) . " --> reussite critique";
             return $score;
         }
         elseif ($counter >= $this->drawCount/2) {
-            $score = "Result: " . implode(", ", $results) . " --> reussite";
+            $score = "Resultat piece " . $this->drawCount . " lancé : " . implode(", ", $results) . " --> reussite";
             return $score;
         }
         else {
-            $score = "Result: " . implode(", ", $results) . " --> echec";
+            $score = "Resultat piece " . $this->drawCount . " lancé : " . implode(", ", $results) . " --> echec";
             return $score;
         }
         return $results;
