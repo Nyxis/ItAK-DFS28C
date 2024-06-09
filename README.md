@@ -10,3 +10,4 @@ La pull request devra suivre le format "Nom Prenom - Titre exercice".
 ## Sommaire des exercices
 
   - [POO - Php - Python](POO_Php_Python/README.md)
+https://academy.hackthebox.com/module/35/section/228
